@@ -33,7 +33,9 @@ def main():
         if key_lst[pg.K_LEFT]:#もし左矢印キーが押されたら
             kk_rct.move_ip(-1, 0)#横座標を-1
         if key_lst[pg.K_RIGHT]:#もし右矢印キーが押されたら
-            kk_rct.move_ip(+1, 0)#横座標を+1
+            kk_rct.move_ip(+2, 0)#横座標を+1
+        else:
+            kk_rct.move_ip(-1,0)
         screen.blit(kk_img, kk_rct) #kk_imgをkk_rctの設定に従って貼り付け
         pg.display.update()
         tmr += 1        
