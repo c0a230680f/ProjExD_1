@@ -27,15 +27,22 @@ def main():
     
         key_lst = pg.key.get_pressed()#全キーの押下状態の取得
         if key_lst[pg.K_UP]:#もし上矢印キーが押されたら、
-            kk_rct.move_ip(0, -1)#縦座標を-1
-        if key_lst[pg.K_DOWN]:#もし下矢印キーが押されたら
-            kk_rct.move_ip(0, +1)#縦座標を+1
-        if key_lst[pg.K_LEFT]:#もし左矢印キーが押されたら
-            kk_rct.move_ip(-1, 0)#横座標を-1
-        if key_lst[pg.K_RIGHT]:#もし右矢印キーが押されたら
-            kk_rct.move_ip(+2, 0)#横座標を+1
-        else:
-            kk_rct.move_ip(-1,0)
+            kx = 0 #横座標
+            ky = -1#縦座標
+        elif key_lst[pg.K_DOWN]:#もし下矢印キーが押されたら
+            kx = 0
+            ky = 1
+        elif key_lst[pg.K_LEFT]:#もし左矢印キーが押されたら
+            kx = -1
+            ky = 0
+        elif key_lst[pg.K_RIGHT]:#もし右矢印キーが押されたら
+            kx = 2
+            ky = 0
+        else:#何もキーが押されていないとき
+            kx = -1
+            ky = 0
+        kk_rct.move_ip(kx, ky)
+        
         screen.blit(kk_img, kk_rct) #kk_imgをkk_rctの設定に従って貼り付け
         pg.display.update()
         tmr += 1        
